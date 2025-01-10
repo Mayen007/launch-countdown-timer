@@ -1,5 +1,5 @@
 function startCountdown() {
-  const targetDate = new Date("2025-01-15T12:00:00Z").getTime();
+  const targetDate = new Date("2025-01-13T12:00:00Z").getTime();
   const countdownItems = document.querySelectorAll('.countdown__item .flip');
 
   function padZero(num) {
@@ -28,13 +28,10 @@ function startCountdown() {
       const bottom = flip.querySelector('.flip__bottom');
       const newValue = values[index];
 
-      // Only animate if the value changes
       if (top.textContent !== String(newValue)) {
-        // Update bottom value and trigger animation
         bottom.textContent = newValue;
         flip.classList.add('animate');
 
-        // After animation, update top value
         flip.addEventListener(
           'animationend',
           () => {
@@ -49,7 +46,7 @@ function startCountdown() {
 
   // Update every second
   const interval = setInterval(updateCountdown, 1000);
-  updateCountdown(); // Call immediately to avoid delay
+  updateCountdown();
 }
 
 startCountdown();
